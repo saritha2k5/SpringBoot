@@ -17,33 +17,3 @@ public class DemoApplication {
 
 }
 
-@RestController
-
-class hellocontroller
-{
-	@GetMapping("/hello")
-	public String hello()
-	{
-		return "Hello Springboot";
-	}
-	
-	
-	@PostMapping("/create")
-	public String createapp()
-	{
-		return "Data Created successfully";
-	}
-	
-	@PutMapping("/update")
-	public String updateapp()
-	{
-		return "Data update successfully";
-	}
-	
-	
-	@DeleteMapping("/delete")
-	public String deleteapp()
-	{
-		return "Data deleted successfully";
-	}
-}
