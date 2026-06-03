@@ -1,9 +1,13 @@
 package com.May2026.demo.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -14,10 +18,20 @@ public class Employee {
 	private Integer emp_id;
 	private String emp_name;
 	private String email;
-	private String department;
+	//private String department;
 	private Double salary;
 	private String status;
-	private Integer dept_id;
+	@ManyToOne
+	@JoinColumn(name="dept_id")
+	@JsonBackReference
+	private Department department;
+	
+	public Department getDepartment() {
+		return department;
+	}
+	public void setDepartment(Department department) {
+		this.department = department;
+	}
 	public Employee()
 	{
 		
@@ -40,12 +54,7 @@ public class Employee {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getDepartment() {
-		return department;
-	}
-	public void setDepartment(String department) {
-		this.department = department;
-	}
+
 	public Double getSalary() {
 		return salary;
 	}
@@ -58,13 +67,7 @@ public class Employee {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public Integer getDept_id() {
-		return dept_id;
-	}
-	public void setDept_id(Integer dept_id) {
-		this.dept_id = dept_id;
-	}
-	
+
 	
 	
 }
